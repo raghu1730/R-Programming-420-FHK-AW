@@ -1,0 +1,63 @@
+---
+title: "BMI"
+author: "Fabian"
+date: '2022-05-22'
+output: pdf_document
+---
+
+# **Human BMI Indicator**
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## **Let create data frame**
+
+```{r}
+person_name <- c("John", "Maria", "Dave", "Cinthia")
+Weight_kg <- c(97, 58, 104, 48)
+Height_inch <- c(72.83, 66.14, 68.90, 59.84)
+person_table <- data.frame(person_name, Weight_kg, Height_inch)
+print(person_table)
+```
+
+## **Convert Inch in Meters**
+
+```{r}
+Height_mt <- round((Height_inch * 0.0254),2)
+print(Height_mt)
+```
+
+## **Merge**
+
+```{r}
+person_table <- cbind(person_table, Height_mts=Height_mt)
+print(person_table)
+```
+
+## **Compute BMI**
+
+```{r}
+BMI_data <- round((Weight_kg / Height_mt^2),2)
+print(BMI_data)
+```
+
+## **Merge with BMI and final data**
+
+```{r}
+person_table <- cbind(person_table, BMI=BMI_data)
+print(person_table)
+```
+
+## **Input Data**
+
+```{r}
+var1 <- readline(prompt = "Enter the value of A: ")
+var2 <- readline(prompt = "Enter the value of B15: ")
+
+var1 <- as.numeric(var1)
+var2 <- as.numeric(var2)
+
+sum <- var1+var2
+print(sum)
+```
